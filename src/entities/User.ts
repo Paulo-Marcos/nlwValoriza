@@ -2,9 +2,9 @@ import { Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn } fro
 import { v4 as uuid } from "uuid"
 
 @Entity("users")
-export class User {
+class User {
   @PrimaryColumn()
-  id: string
+  readonly id: string
 
   @Column()
   name: string
@@ -21,7 +21,11 @@ export class User {
   @UpdateDateColumn()
   updated_at: Date
 
-  construtor() {
-    if (!this.id) this.id = uuid()
+  constructor() {
+    if (!this.id) {
+      this.id = uuid()
+    }
   }
 }
+
+export { User }
