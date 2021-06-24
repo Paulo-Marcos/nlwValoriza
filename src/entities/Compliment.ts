@@ -29,6 +29,9 @@ class Compliment {
   @ManyToOne(() => Tag)
   tag: Tag
 
+  @Column()
+  message: string
+
   @CreateDateColumn()
   created_at: Date
 
