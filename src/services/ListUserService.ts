@@ -1,3 +1,4 @@
+import { classToPlain } from "class-transformer"
 import { getCustomRepository } from "typeorm"
 import { UsersRepositories } from "../repositories/UserRepositories"
 
@@ -7,7 +8,7 @@ class ListUserService {
 
     const users = await userRepositories.find()
 
-    return users
+    return classToPlain(users)
   }
 }
 
